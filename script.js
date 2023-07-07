@@ -50,40 +50,40 @@ aboutButton.addEventListener('click', () => {
     <div class="review">
     <p class="review-text">The photos are of high quality and they look great!</p>
     <div class="review-actions">
-      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
     </div>
   </div>
   
   <div class="review">
     <p class="review-text">Great features and options. The support team responded quickly to my question.</p>  
     <div class="review-actions">
-      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
     </div>    
   </div>
   
   <div class="review">
     <p class="review-text">WOW!!! We took a whole hour watching our pics on the TV. Thanks Addonay!</p>
     <div class="review-actions">
-      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
     </div>
   </div>  
 
   <div class="review">
     <p class="review-text">The photos are absolutely amazing and so much more than I could have imagined!!!</p>
     <div class="review-actions">
-      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
     </div>
   </div> 
 
   <div class="review">
     <p class="review-text">Incredible work bruh!!.</p>
     <div class="review-actions">
-      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
     </div>
   </div> 
   `;
