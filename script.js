@@ -82,10 +82,7 @@ aboutButton.addEventListener('click', () => {
     <p>Since then, Capture-Chronicles has grown to become one of the most popular photo and video sharing websites in the world.</p>
     <p>We are committed to providing our users with the best possible experience. We offer a variety of features to help you create beautiful photo albums and videos.</p>
     <p>We also have a team of dedicated support staff who are available to help you with any questions or problems you may have.</p>
-    <p>If you are looking for a simple and easy-to-use way to share your memories, then Capture-Chronicles is the perfect place for you.</p>
-  
-    
-     
+    <p>If you are looking for a simple and easy-to-use way to share your memories, then Capture-Chronicles is the perfect place for you.</p>    
   `;
 });
 
