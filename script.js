@@ -1,99 +1,117 @@
-// Add event listeners to the navigation buttons
-document.getElementById("home-button").addEventListener("click", loadHomePage);
-document.getElementById("about-button").addEventListener("click", loadAboutPage);
-document.getElementById("gallery-button").addEventListener("click", loadGalleryPage);
-document.getElementById("contact-button").addEventListener("click", loadContactPage);
+// Function to fetch and display images from the db.json file
+function fetchImagesFromDB() {
+  fetch('db.json')
+    .then(response => response.json())
+    .then(data => {
+      const dbImages = data.images;
 
-// Function to load the Home page
-function loadHomePage() {
-    // Clear the content area
-    const content = document.querySelector('.content');
-    content.innerHTML = '';
-  
-    // Create the home section
-    const homeSection = document.createElement('section');
-    homeSection.classList.add('home');
-  
-    // Create and append the home content
-    const welcomeMessage = document.createElement('h2');
-    welcomeMessage.textContent = 'Welcome to Capture-Chronicles!';
-    homeSection.appendChild(welcomeMessage);
-  
-    const highlightText = document.createElement('p');
-    highlightText.textContent = 'Explore the world through my lens.';
-    homeSection.appendChild(highlightText);
-  
-    // Append the home section to the content area
-    content.appendChild(homeSection);
-}  
-function loadAboutPage() {
-    const loadingIndicator = document.createElement('p');
-    loadingIndicator.textContent = 'Loading...';
-    contentContainer.appendChild(loadingIndicator);
-  
-    const aboutSection = document.createElement('section');
-    aboutSection.classList.add('about');
-  
-    const aboutTitle = document.createElement('h2');
-    aboutTitle.textContent = 'About Me';
-  
-    const aboutText = document.createElement('p');  
-    aboutText.textContent = `Welcome to my photography portfolio! My name is Addonay Osoro, and I'm a passionate photographer based in Kenya. I specialize in Wedding Photography, capturing stunning images that tell a story and evoke emotion.
-  Photography has been a part of my life for as long as I can remember. My love for the art form began when I was a child, and I would spend hours flipping through my family's photo albums, marveling at the power of a single image to capture a moment in time.
-  As I grew older, I began to experiment with photography myself, first with a point-and-shoot camera and later with more advanced equipment. I quickly realized that photography was more than just a hobby - it was a way to express my creativity and connect with the world around me.`;
-  
-    aboutSection.appendChild(aboutTitle);
-    aboutSection.appendChild(aboutText);
-  
-    contentContainer.appendChild(aboutSection);
-  
-    loadingIndicator.remove();
-}
-  
-// Function to load the Gallery page
-function loadGalleryPage() {
-    // Clear the content area
-    const content = document.querySelector('.content');
-    content.innerHTML = '';
-  
-    // Create the gallery section
-    const gallerySection = document.createElement('section');
-    gallerySection.classList.add('gallery');
-  
-    // Fetch images from Cloudinary API
-    const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/capture-chronicles/image/list/wedding.json';
-    const imageTag = 'wedding';
-    const apiKey = '868576761468562';
-    const apiScret = '1QvUg34AMZnSUMmZJ3Y5_uJ7lk4'
-    fetch(`https://api.cloudinary.com/v1_1/capture-chronicles/image/list/wedding.json`)
-      .then(response => response.json())
-      .then(data => {
-        // Iterate through the fetched images
-        data.resources.forEach(image => {
-          // Create and append image elements to the gallery section
-          const img = document.createElement('img');
-          img.src = image.secure_url;
-          img.alt = image.public_id;
-          gallerySection.appendChild(img);
-        });
-      })
-      .catch(error => {
-        console.error('Error fetching images:', error);
+      const gallerySection = document.querySelector('#gallery');
+      gallerySection.innerHTML = '<h1>Gallery</h1>';
+
+      dbImages.forEach(image => {
+        const imageUrl = image.url;
+        const imageElement = document.createElement('img');
+        imageElement.src = imageUrl;
+        gallerySection.appendChild(imageElement);
       });
-  
-    // Append the gallery section to the content area
-    content.appendChild(gallerySection);
+    })
+    .catch(error => {
+      console.error('Error fetching images from db.json:', error);
+    });
 }
-// Function to load the Contact page
-function loadContactPage() {
-    // Clear the content area
-    const content = document.querySelector('.content');
-    content.innerHTML = '';
+// Get the sidebar buttons
+const homeButton = document.getElementById('homebtn');
+const aboutButton = document.getElementById('aboutbtn');
+const galleryButton = document.getElementById('gallerybtn');
+const contactButton = document.getElementById('contactbtn');
+
+// Get the content section
+const contentSection = document.querySelector('.content');
+
+// Add event listeners to the buttons
+homeButton.addEventListener('click', () => {
+  contentSection.innerHTML = '<p>Welcome to Capture Chronicles, where every photo tells a story!</p><p>Step into a world of stunning imagery, where the beauty of life is captured and preserved forever. Our photography portfolio is a window into the world through the lens of our skilled photographers, who have a passion for capturing the essence of every moment.</p><p>At Capture Chronicles, we believe that photography is an art form that should celebrate the beauty of life. Whether it\'s the magnificence of nature, the joy of a wedding, the excitement of a sporting event, or the love between family members, our photographers have an eye for detail and a talent for capturing the essence of every moment.</p><p>Our portfolio is a collection of images that showcase our unique style and ability to capture the heart of every moment. From breathtaking landscapes to intimate portraits, our photography tells a story that will inspire, uplift, and captivate you.</p><p>Whether you\'re looking for a photographer to capture your special day or simply seeking inspiration, our portfolio is a must-see. So come on in and experience the world through our lens - we guarantee you\'ll be captivated by what you see!</p>';
+});
+
+aboutButton.addEventListener('click', () => {
+  contentSection.innerHTML = `
+    <h1>About Us</h1>
+    <p>Capture-Chronicles was founded in 2023 by two friends who wanted to create a simple and easy-to-use way for people to share their memories.</p>
+    <p>Since then, Capture-Chronicles has grown to become one of the most popular photo and video sharing websites in the world.</p>
+    <p>We are committed to providing our users with the best possible experience. We offer a variety of features to help you create beautiful photo albums and videos.</p>
+    <p>We also have a team of dedicated support staff who are available to help you with any questions or problems you may have.</p>
+    <p>If you are looking for a simple and easy-to-use way to share your memories, then Capture-Chronicles is the perfect place for you.</p>
+    <div class="review">
+     <p class="review-text">The photos are of high quality and they look great!</p>
+     <div class="review-actions">
+       <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
+       <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+    </div>
+  </div>
   
-    // Get the existing contact section from the HTML
-    const contactSection = document.getElementById('contact');
+  <div class="review">
+    <p class="review-text">Great features and options. The support team responded quickly to my question.</p>  
+    <div class="review-actions">
+      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+    </div>    
+  </div>
   
-    // Append the contact section to the content area
-    content.appendChild(contactSection);
-}
-  
+  <div class="review">
+    <p class="review-text">WOW!!! We took a whole hour watching our pics on the TV. Thanks Addonay!</p>
+    <div class="review-actions">
+      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+    </div>
+  </div>  
+
+  <div class="review">
+    <p class="review-text">The photos are absolutely amazing and so much more than I could have imagined!!!</p>
+    <div class="review-actions">
+      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+    </div>
+  </div> 
+
+  <div class="review">
+    <p class="review-text">Incredible work bruh!!.</p>
+    <div class="review-actions">
+      <button class="like-button"><img src="/pics/icons8-like-24.png" alt="like"></button>
+      <button class="dislike-button"><img src="/pics/thumb-down.png" alt="dislike"></button>
+    </div>
+  </div> 
+  `;
+});
+// Add event listener to the gallery button
+galleryButton.addEventListener('click', () => {
+  fetchImagesFromDB(); // Call the fetchImagesFromDB function to fetch and display the images
+});
+contactButton.addEventListener('click', () => {
+  contentSection.innerHTML = `
+    <h2 class="w3-text-light-grey">Contact Me</h2>
+    <hr style="width:200px">
+    <div class="contact section">
+      <p><i class="location"></i> Nairobi, KE</p>
+      <p><i class="phone"></i> Phone: <a href="Tel:+254711011011">+254711011011</a></p>
+      <p><i class="email"> </i> Email: <a href="Email:addonay.osoro@student.moringaschool.com">addonay.osoro@student.moringaschool.com</a></p>
+    </div><br>
+    <p>Let's get in touch. Send me a message:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="textbox" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="textbox" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="textbox" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="textbox" id = "message" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="btnSubmit" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+    <div class="social">
+      <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-bounce"></i></a>
+      <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp fa-beat-fade"></i></a>
+      <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-bounce"></i></a>
+      <a href="https://github.com/Addonay/Capture-Chronicles"><i class="fa-brands fa-github fa-beat-fade"></i></a>
+    </div>
+  `;
+});
