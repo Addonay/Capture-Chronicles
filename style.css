@@ -249,11 +249,11 @@ footer {
 /* CSS code for styling the images in the gallery */
 #gallery {
   display: flexbox;
+  flex-wrap:wrap;
+  flex-shrink: initial;
   object-fit: contain;
 }
 #gallery img {
-  width: 400px;
-  height: auto;
   margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
