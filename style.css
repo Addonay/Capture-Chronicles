@@ -212,6 +212,18 @@ footer {
   text-align: center;
   margin-top: 50px;
 }
+/* CSS code for styling the images in the gallery */
+#gallery {
+  display: flexbox;
+  object-fit: contain;
+}
+#gallery img {
+  width: 400px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .like-button{
   background-color: transparent;
   border: none;
@@ -245,19 +257,4 @@ footer {
   opacity: 0.8;
   transform: scale(1.1);
   box-shadow: none;
-}
-
-/* CSS code for styling the images in the gallery */
-/* CSS code for styling the images in the gallery */
-#gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
-}
-#gallery img {
-  width: 40%;
-  height: 40%;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
