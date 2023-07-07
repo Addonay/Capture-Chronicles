@@ -16,7 +16,45 @@ function fetchImagesFromDB() {
       });
 
       // Insert the review section code here
-      gallerySection.innerHTML +='';
+      gallerySection.innerHTML +=`<div class="review">
+      <p class="review-text">The photos are of high quality and they look great!</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+    </div>
+    
+    <div class="review">
+      <p class="review-text">Great features and options. The support team responded quickly to my question.</p>  
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>    
+    </div>
+    
+    <div class="review">
+      <p class="review-text">WOW!!! We took a whole hour watching our pics on the TV. Thanks Addonay!</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+    </div>  
+  
+    <div class="review">
+      <p class="review-text">The photos are absolutely amazing and so much more than I could have imagined!!!</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+    </div> 
+  
+    <div class="review">
+      <p class="review-text">Incredible work bruh!!.</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+    </div`;
     })
     .catch(error => {
       console.error('Error fetching images from db.json:', error);
@@ -47,45 +85,7 @@ aboutButton.addEventListener('click', () => {
     <p>If you are looking for a simple and easy-to-use way to share your memories, then Capture-Chronicles is the perfect place for you.</p>
   
     
-    <div class="review">
-    <p class="review-text">The photos are of high quality and they look great!</p>
-    <div class="review-actions">
-      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-    </div>
-  </div>
-  
-  <div class="review">
-    <p class="review-text">Great features and options. The support team responded quickly to my question.</p>  
-    <div class="review-actions">
-      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-    </div>    
-  </div>
-  
-  <div class="review">
-    <p class="review-text">WOW!!! We took a whole hour watching our pics on the TV. Thanks Addonay!</p>
-    <div class="review-actions">
-      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-    </div>
-  </div>  
-
-  <div class="review">
-    <p class="review-text">The photos are absolutely amazing and so much more than I could have imagined!!!</p>
-    <div class="review-actions">
-      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-    </div>
-  </div> 
-
-  <div class="review">
-    <p class="review-text">Incredible work bruh!!.</p>
-    <div class="review-actions">
-      <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-      <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-    </div>
-  </div> 
+     
   `;
 });
 
