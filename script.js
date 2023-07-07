@@ -107,7 +107,7 @@ contactButton.addEventListener('click', () => {
         </button>
       </p>
     </form>
-    <div class="social">
+    <div class="social-media">
       <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-bounce"></i></a>
       <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp fa-beat-fade"></i></a>
       <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-bounce"></i></a>
