@@ -1,4 +1,5 @@
 # Capture-Chronicles
+[Click here](https://addonay.github.io/Capture-Chronicles/) to view the frontend of my project.
 ## Project Description
 Capture Chronicles is a photography portfolio and sharing website. The website showcases stunning imagery captured by skilled photographers, with a focus on telling stories through photos.
 The website has a simple navigation with buttons for Home, About, Gallery, and Contact. When a button is clicked, the corresponding content is displayed in the main content section.
