@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const galleryButton = document.querySelector('gallerybtn');
+  galleryButton.addEventListener('click', fetchImagesFromDB);
+});
 // Function to fetch and display images from the db.json file
 function fetchImagesFromDB() {
   fetch('db.json')
@@ -16,45 +20,7 @@ function fetchImagesFromDB() {
       });
 
       // Insert the review section code here
-      gallerySection.innerHTML +=`<div class="review">
-      <p class="review-text">The photos are of high quality and they look great!</p>
-      <div class="review-actions">
-        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-      </div>
-    </div>
-    
-    <div class="review">
-      <p class="review-text">Great features and options. The support team responded quickly to my question.</p>  
-      <div class="review-actions">
-        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-      </div>    
-    </div>
-    
-    <div class="review">
-      <p class="review-text">WOW!!! We took a whole hour watching our pics on the TV. Thanks Addonay!</p>
-      <div class="review-actions">
-        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-      </div>
-    </div>  
-  
-    <div class="review">
-      <p class="review-text">The photos are absolutely amazing and so much more than I could have imagined!!!</p>
-      <div class="review-actions">
-        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-      </div>
-    </div> 
-  
-    <div class="review">
-      <p class="review-text">Incredible work bruh!!.</p>
-      <div class="review-actions">
-        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
-        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
-      </div>
-    </div`;
+      gallerySection.innerHTML +='';
     })
     .catch(error => {
       console.error('Error fetching images from db.json:', error);
@@ -82,10 +48,84 @@ aboutButton.addEventListener('click', () => {
     <p>Since then, Capture-Chronicles has grown to become one of the most popular photo and video sharing websites in the world.</p>
     <p>We are committed to providing our users with the best possible experience. We offer a variety of features to help you create beautiful photo albums and videos.</p>
     <p>We also have a team of dedicated support staff who are available to help you with any questions or problems you may have.</p>
-    <p>If you are looking for a simple and easy-to-use way to share your memories, then Capture-Chronicles is the perfect place for you.</p>    
+    <p>If you are looking for a simple and easy-to-use way to share your memories, then Capture-Chronicles is the perfect place for you.</p>
+    <div class="review">
+      <p class="review-text">The photos are of high quality and they look great!</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+      <div class="review-counts">
+        <span class="like-count">0</span>  <span class="dislike-count">0</span>
+      </div>
+    </div>
+    
+    <div class="review">
+      <p class="review-text">Great features and options. The support team responded quickly to my question.</p>  
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+      <div class="review-counts">
+        <span class="like-count">0</span>  <span class="dislike-count">0</span>
+      </div>    
+    </div>
+    
+    <div class="review">
+      <p class="review-text">WOW!!! We took a whole hour watching our pics on the TV. Thanks Addonay!</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+      <div class="review-counts">
+      <span class="like-count">0</span>  <span class="dislike-count">0</span>
+    </div>
+    </div>
+    
+    <div class="review">
+      <p class="review-text">The photos are absolutely amazing and so much more than I could have imagined!!!</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+      <div class="review-counts">
+        <span class="like-count">0</span>  <span class="dislike-count">0</span>
+      </div>
+    </div>
+    
+    <div class="review">
+      <p class="review-text">Incredible work bruh!!.</p>
+      <div class="review-actions">
+        <button class="like-button"><img src="/pics/ThumbsUp.svg" alt="like"></button>
+        <button class="dislike-button"><img src="/pics/ThumbsDown.svg" alt="dislike"></button>
+      </div>
+      <div class="review-counts">
+        <span class="like-count">0</span>  <span class="dislike-count">0</span>
+      </div>
+    </div>    
   `;
 });
+// Add event listeners to the like and dislike buttons
+const likeButtons = document.querySelectorAll('like-button');
+const dislikeButtons = document.querySelectorAll('dislike-button');
 
+likeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const review = button.closest('review');
+    const likeCount = review.querySelector('like-count');
+    const currentLikes = parseInt(likeCount.textContent);
+    likeCount.textContent = currentLikes + 1;
+  });
+});
+
+dislikeButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const review = button.closest('review');
+    const dislikeCount = review.querySelector('dislike-count');
+    const currentDislikes = parseInt(dislikeCount.textContent);
+    dislikeCount.textContent = currentDislikes + 1;
+  });
+});
 // Add event listener to the gallery button
 galleryButton.addEventListener('click', () => {
   fetchImagesFromDB(); // Call the fetchImagesFromDB function to fetch and display the images
