@@ -24,44 +24,28 @@ contactButton.addEventListener('click', () => {
   contactSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-// Get all review buttons and counts
+// Review buttons
 const reviewButtons = document.querySelectorAll('.review-button');
 const likeCounts = document.querySelectorAll('.like-count');
 const dislikeCounts = document.querySelectorAll('.dislike-count');
 
-// Initialize arrays to track likes/dislikes and button states for each review
-let likes = []; 
-let dislikes = [];
-let buttonStates = [];
+// Initialize likes and dislikes array
+let likes = Array.from({ length: reviewButtons.length }, () => 0);
+let dislikes = Array.from({ length: reviewButtons.length }, () => 0);
 
-reviewButtons.forEach(() => {
-  // Initialize counts and state for each review
-  likes.push(0);
-  dislikes.push(0);  
-  buttonStates.push('');
-});
-
-// Function to update counts for a specific review
+// Function to update like and dislike counts
 function updateCounts(index) {
   likeCounts[index].textContent = likes[index];
   dislikeCounts[index].textContent = dislikes[index];
 }
 
+// Add event listeners to review buttons
 reviewButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    if (buttonStates[index] === '') {
-      // Button has not been clicked yet  
-      button.classList.add('liked');  
-      buttonStates[index] = 'liked';
+    if (!button.classList.contains('liked') && !button.classList.contains('disliked')) {
+      // If the button is not already liked or disliked
+      button.classList.add('liked');
       likes[index]++;
-      updateCounts(index);
-    } else if (buttonStates[index] === 'liked') {
-      // Button has already been liked  
-      button.classList.remove('liked');
-      button.classList.add('disliked');
-      buttonStates[index] = 'disliked';
-      likes[index]--;  
-      dislikes[index]++;
       updateCounts(index);
     } else if (button.classList.contains('liked')) {
       // If the button is already liked, remove like and add dislike
