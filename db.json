@@ -2,7 +2,7 @@
     "images": [
       {
         "id": "wed1",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed1.jpg"
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed1.jpg"
       },
       {
         "id": "wed5",
@@ -10,19 +10,11 @@
       },
       {
         "id": "wed18",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed18.jpg"
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed18.jpg"
       },
       {
         "id": "wed13",
         "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed13.jpg"
-      },
-      {
-        "id": "wed19",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed19.jpg"
-      },
-      {
-        "id": "wed21",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed21.jpg"
       },
       {
         "id": "wed2",

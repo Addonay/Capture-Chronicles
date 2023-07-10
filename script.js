@@ -97,7 +97,6 @@ function openSocialMedia(url) {
 // Function to open social media page for messaging
 function openSocialMediaMessage(url) {
   window.open(url, '_blank');
-  // You can also use other methods like window.location.href = url; to navigate to the messaging page in the same tab
 }
 
 // Add event listeners to social media icons
@@ -126,8 +125,7 @@ discordIcon.addEventListener('click', () => {
 });
 
 whatsappIcon.addEventListener('click', () => {
-  openSocialMediaMessage('https://web.whatsapp.com/send?phone=<PHONE_NUMBER>');
-  // Replace <PHONE_NUMBER> with the actual phone number to pre-fill the message
+  openSocialMediaMessage('https://web.whatsapp.com/send?phone=<+254711011011>');
 });
 
 // Fetch images from db.json and display in the gallery section
