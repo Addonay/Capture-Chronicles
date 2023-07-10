@@ -24,60 +24,65 @@ contactButton.addEventListener('click', () => {
   contactSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-// Like and dislike buttons
-const likeButtons = document.querySelectorAll('.like-button');
-const dislikeButtons = document.querySelectorAll('.dislike-button');
+// Review buttons
+const reviewButtons = document.querySelectorAll('.review-button');
 const likeCounts = document.querySelectorAll('.like-count');
 const dislikeCounts = document.querySelectorAll('.dislike-count');
 
-let totalLikes = 0;
-let totalDislikes = 0;
+// Initialize likes and dislikes array
+let likes = Array.from({ length: reviewButtons.length }, () => 0);
+let dislikes = Array.from({ length: reviewButtons.length }, () => 0);
 
-likeButtons.forEach((button, index) => {
+// Function to update like and dislike counts
+function updateCounts(index) {
+  likeCounts[index].textContent = likes[index];
+  dislikeCounts[index].textContent = dislikes[index];
+}
+
+// Add event listeners to review buttons
+reviewButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    if (!button.classList.contains('liked')) {
-      if (dislikeButtons[index].classList.contains('disliked')) {
-        // Decrease the dislike count if it was previously disliked
-        totalDislikes--;
-        dislikeCounts[index].textContent = totalDislikes;
-        dislikeButtons[index].classList.remove('disliked');
-      }
-
-      // Increase the like count
-      totalLikes++;
-      likeCounts[index].textContent = totalLikes;
+    if (!button.classList.contains('liked') && !button.classList.contains('disliked')) {
+      // If the button is not already liked or disliked
       button.classList.add('liked');
-    } else {
-      // Decrease the like count if it was previously liked
-      totalLikes--;
-      likeCounts[index].textContent = totalLikes;
+      likes[index]++;
+      updateCounts(index);
+    } else if (button.classList.contains('liked')) {
+      // If the button is already liked, remove like and add dislike
       button.classList.remove('liked');
-    }
-  });
-});
-
-dislikeButtons.forEach((button, index) => {
-  button.addEventListener('click', () => {
-    if (!button.classList.contains('disliked')) {
-      if (likeButtons[index].classList.contains('liked')) {
-        // Decrease the like count if it was previously liked
-        totalLikes--;
-        likeCounts[index].textContent = totalLikes;
-        likeButtons[index].classList.remove('liked');
-      }
-
-      // Increase the dislike count
-      totalDislikes++;
-      dislikeCounts[index].textContent = totalDislikes;
       button.classList.add('disliked');
-    } else {
-      // Decrease the dislike count if it was previously disliked
-      totalDislikes--;
-      dislikeCounts[index].textContent = totalDislikes;
+      likes[index]--;
+      dislikes[index]++;
+      updateCounts(index);
+    } else if (button.classList.contains('disliked')) {
+      // If the button is already disliked, remove dislike
       button.classList.remove('disliked');
+      dislikes[index]--;
+      updateCounts(index);
     }
   });
 });
+
+// Load likes and dislikes from localStorage
+if (localStorage.getItem('likes')) {
+  likes = JSON.parse(localStorage.getItem('likes'));
+}
+
+if (localStorage.getItem('dislikes')) {
+  dislikes = JSON.parse(localStorage.getItem('dislikes'));
+}
+
+// Update initial like and dislike counts
+for (let i = 0; i < reviewButtons.length; i++) {
+  updateCounts(i);
+}
+
+// Save likes and dislikes to localStorage
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('likes', JSON.stringify(likes));
+  localStorage.setItem('dislikes', JSON.stringify(dislikes));
+});
+
 
 
 // Social media icons
