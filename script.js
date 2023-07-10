@@ -24,63 +24,74 @@ contactButton.addEventListener('click', () => {
   contactSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-// Review buttons
-const reviewButtons = document.querySelectorAll('.review-button');
+// Like and dislike buttons functionality
+const likeButtons = document.querySelectorAll('.like-button');
+const dislikeButtons = document.querySelectorAll('.dislike-button');
 const likeCounts = document.querySelectorAll('.like-count');
 const dislikeCounts = document.querySelectorAll('.dislike-count');
 
-// Initialize likes and dislikes array
-let likes = Array.from({ length: reviewButtons.length }, () => 0);
-let dislikes = Array.from({ length: reviewButtons.length }, () => 0);
+let totalLikes = 0;
+let totalDislikes = 0;
+const userVotes = {}; // Store user's votes
 
-// Function to update like and dislike counts
-function updateCounts(index) {
-  likeCounts[index].textContent = likes[index];
-  dislikeCounts[index].textContent = dislikes[index];
-}
-
-// Add event listeners to review buttons
-reviewButtons.forEach((button, index) => {
+likeButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    if (!button.classList.contains('liked') && !button.classList.contains('disliked')) {
-      // If the button is not already liked or disliked
+    const review = button.closest('.review');
+    const reviewId = review.dataset.reviewId;
+
+    // Check if the user has already voted for this review
+    if (userVotes[reviewId] !== 'like') {
+      // Decrease the dislike count if the user previously disliked this review
+      if (userVotes[reviewId] === 'dislike') {
+        totalDislikes--;
+        const dislikeCount = review.querySelector('.dislike-count');
+        dislikeCount.textContent = totalDislikes;
+      }
+
+      // Increase the like count
+      totalLikes++;
+      const likeCount = review.querySelector('.like-count');
+      likeCount.textContent = totalLikes;
+
+      // Store the user's vote
+      userVotes[reviewId] = 'like';
+
+      // Update the button classes
       button.classList.add('liked');
-      likes[index]++;
-      updateCounts(index);
-    } else if (button.classList.contains('liked')) {
-      // If the button is already liked, remove like and add dislike
-      button.classList.remove('liked');
-      button.classList.add('disliked');
-      likes[index]--;
-      dislikes[index]++;
-      updateCounts(index);
-    } else if (button.classList.contains('disliked')) {
-      // If the button is already disliked, remove dislike
-      button.classList.remove('disliked');
-      dislikes[index]--;
-      updateCounts(index);
+      const dislikeButton = review.querySelector('.dislike-button');
+      dislikeButton.classList.remove('disliked');
     }
   });
 });
 
-// Load likes and dislikes from localStorage
-if (localStorage.getItem('likes')) {
-  likes = JSON.parse(localStorage.getItem('likes'));
-}
+dislikeButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    const review = button.closest('.review');
+    const reviewId = review.dataset.reviewId;
 
-if (localStorage.getItem('dislikes')) {
-  dislikes = JSON.parse(localStorage.getItem('dislikes'));
-}
+    // Check if the user has already voted for this review
+    if (userVotes[reviewId] !== 'dislike') {
+      // Decrease the like count if the user previously liked this review
+      if (userVotes[reviewId] === 'like') {
+        totalLikes--;
+        const likeCount = review.querySelector('.like-count');
+        likeCount.textContent = totalLikes;
+      }
 
-// Update initial like and dislike counts
-for (let i = 0; i < reviewButtons.length; i++) {
-  updateCounts(i);
-}
+      // Increase the dislike count
+      totalDislikes++;
+      const dislikeCount = review.querySelector('.dislike-count');
+      dislikeCount.textContent = totalDislikes;
 
-// Save likes and dislikes to localStorage
-window.addEventListener('beforeunload', () => {
-  localStorage.setItem('likes', JSON.stringify(likes));
-  localStorage.setItem('dislikes', JSON.stringify(dislikes));
+      // Store the user's vote
+      userVotes[reviewId] = 'dislike';
+
+      // Update the button classes
+      button.classList.add('disliked');
+      const likeButton = review.querySelector('.like-button');
+      likeButton.classList.remove('liked');
+    }
+  });
 });
 
 
