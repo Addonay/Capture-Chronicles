@@ -124,7 +124,7 @@ nav {
 
 .like-button.clicked,
 .dislike-button.clicked {
-  color: blue;
+  color: none;
 }
 
 /* Contact section */
