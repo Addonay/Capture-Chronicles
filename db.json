@@ -5,78 +5,56 @@
         "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed1.jpg"
       },
       {
-        "id": "wed2",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed2.jpg"
-      },
-      {
-        "id": "wed3",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed3.jpg"
-      },{
-        "id": "wed4",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed4.jpg"
-      },
-      {
         "id": "wed5",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed5.jpg"
-      },
-      {
-        "id": "wed6",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed6.jpg"
-      },{
-        "id": "wed7",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed7.jpg"
-      },
-      {
-        "id": "wed8",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed8.jpg"
-      },
-      {
-        "id": "wed9",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed9.jpg"
-      },{
-        "id": "wed10",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed10.jpg"
-      },
-      {
-        "id": "wed11",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed11.jpg"
-      },
-      {
-        "id": "wed12",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed12.jpg"
-      },{
-        "id": "wed13",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed13.jpg"
-      },
-      {
-        "id": "wed14",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed14.jpg"
-      },
-      {
-        "id": "wed15",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed15.jpg"
-      },{
-        "id": "wed16",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed16.jpg"
-      },
-      {
-        "id": "wed17",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed17.jpg"
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/v1688769168/wed/wed5.png"
       },
       {
         "id": "wed18",
         "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed18.jpg"
-      },{
-        "id": "wed19",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed19.jpg"
       },
       {
-        "id": "wed20",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed20.jpg"
+        "id": "wed13",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed13.jpg"
+      },
+      {
+        "id": "wed19",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed19.jpg"
       },
       {
         "id": "wed21",
-        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wedding/wed21.jpg"
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed21.jpg"
+      },
+      {
+        "id": "wed2",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed2.jpg"
+      },
+      {
+        "id": "wed3",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed3.jpg"
+      },
+      {
+        "id": "wed4",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed4.jpg"
+      },
+      {
+        "id": "wed10",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed10.jpg"
+      },
+      {
+        "id": "wed11",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed11.jpg"
+      },
+      {
+        "id": "wed15",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed15.jpg"
+      },
+      {
+        "id": "wed16",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed16.jpg"
+      },
+      {
+        "id": "wed20",
+        "url": "https://res.cloudinary.com/capture-chronicles/image/upload/wed/wed20.jpg"
       }
       
     ]
