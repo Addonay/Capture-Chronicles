@@ -17,12 +17,17 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3 {
+h1 {
   font-weight: lighter;
   font-size: 50px;
   align-content: center;
   text-decoration: underline;
   text-decoration-thickness: 2px;
+}
+
+h4{
+  font-style: italic ;
+  font-size: 10px;
 }
 
 p {

@@ -30,36 +30,55 @@ const dislikeButtons = document.querySelectorAll('.dislike-button');
 const likeCounts = document.querySelectorAll('.like-count');
 const dislikeCounts = document.querySelectorAll('.dislike-count');
 
-let liked = Array.from({ length: likeButtons.length }, () => false);
-let disliked = Array.from({ length: dislikeButtons.length }, () => false);
+let totalLikes = 0;
+let totalDislikes = 0;
 
 likeButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    if (!liked[index] && !disliked[index]) {
-      likeCounts[index].textContent = parseInt(likeCounts[index].textContent) + 1;
-      liked[index] = true;
-    } else if (disliked[index]) {
-      dislikeCounts[index].textContent = parseInt(dislikeCounts[index].textContent) - 1;
-      likeCounts[index].textContent = parseInt(likeCounts[index].textContent) + 1;
-      disliked[index] = false;
-      liked[index] = true;
+    if (!button.classList.contains('liked')) {
+      if (dislikeButtons[index].classList.contains('disliked')) {
+        // Decrease the dislike count if it was previously disliked
+        totalDislikes--;
+        dislikeCounts[index].textContent = totalDislikes;
+        dislikeButtons[index].classList.remove('disliked');
+      }
+
+      // Increase the like count
+      totalLikes++;
+      likeCounts[index].textContent = totalLikes;
+      button.classList.add('liked');
+    } else {
+      // Decrease the like count if it was previously liked
+      totalLikes--;
+      likeCounts[index].textContent = totalLikes;
+      button.classList.remove('liked');
     }
   });
 });
 
 dislikeButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    if (!disliked[index] && !liked[index]) {
-      dislikeCounts[index].textContent = parseInt(dislikeCounts[index].textContent) + 1;
-      disliked[index] = true;
-    } else if (liked[index]) {
-      likeCounts[index].textContent = parseInt(likeCounts[index].textContent) - 1;
-      dislikeCounts[index].textContent = parseInt(dislikeCounts[index].textContent) + 1;
-      liked[index] = false;
-      disliked[index] = true;
+    if (!button.classList.contains('disliked')) {
+      if (likeButtons[index].classList.contains('liked')) {
+        // Decrease the like count if it was previously liked
+        totalLikes--;
+        likeCounts[index].textContent = totalLikes;
+        likeButtons[index].classList.remove('liked');
+      }
+
+      // Increase the dislike count
+      totalDislikes++;
+      dislikeCounts[index].textContent = totalDislikes;
+      button.classList.add('disliked');
+    } else {
+      // Decrease the dislike count if it was previously disliked
+      totalDislikes--;
+      dislikeCounts[index].textContent = totalDislikes;
+      button.classList.remove('disliked');
     }
   });
 });
+
 
 // Social media icons
 const appleIcon = document.getElementById('apple');
